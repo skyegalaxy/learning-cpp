@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -it --entrypoint bash --mount type=bind,src=./code-examples,dst=/code-examples learning-cpp:1.0 
+docker run --rm -it --entrypoint bash --name learning-cpp --mount type=bind,src=./code-examples,dst=/code-examples learning-cpp:1.0 
