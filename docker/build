@@ -1,0 +1,2 @@
+#!/bin/bash
+docker build --network host -t learning-cpp:1.0 . 
