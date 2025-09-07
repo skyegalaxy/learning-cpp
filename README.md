@@ -1,11 +1,11 @@
 # learning-cpp
 This repo contains everything needed to build the learning-cpp docker container and code examples for C++ coursework.
 
-
 # Setup
 
-Install docker: https://docs.docker.com/engine/install/
-Optional - Setup docker without sudo: https://docs.docker.com/engine/install/linux-postinstall/
+Install docker: https://docs.docker.com/engine/install/ 
+
+Optional - Configure docker to run without sudo (needed for the convenience scripts): https://docs.docker.com/engine/install/linux-postinstall/
 
 # Building the container
 
@@ -15,7 +15,9 @@ If you're on linux, you can use the included convenience scripts. \
 From the root of this repo:
 
 ```bash
+
 docker/build
+
 ```
 
 # Building and running applications
