@@ -20,7 +20,7 @@ docker/build
 
 ```
 
-# Building and running applications
+# Building and launching the container
 
 All code in this course will be built and run inside the container. To build code examples, you will need to build and run the container. 
 
