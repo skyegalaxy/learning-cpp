@@ -7,7 +7,7 @@ Install docker: https://docs.docker.com/engine/install/
 
 Optional - Configure docker to run without sudo (needed for the convenience scripts): https://docs.docker.com/engine/install/linux-postinstall/
 
-# Building the container
+# Building and launching the container
 
 Unless you want to add new system dependencies, you should only need to build the container on your host machine once. 
 
@@ -19,8 +19,6 @@ From the root of this repo:
 docker/build
 
 ```
-
-# Building and launching the container
 
 All code in this course will be built and run inside the container. To build code examples, you will need to build and run the container. 
 
