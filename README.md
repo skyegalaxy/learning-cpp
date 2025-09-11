@@ -38,9 +38,7 @@ From inside the container:
 
 ```bash
 
-cd /code-examples/W1-intro/
-mkdir build && cd build
-cmake .. && make -j
+mkdir build && cmake -B build && cmake --build build
 ./hello-world
 
 ```
