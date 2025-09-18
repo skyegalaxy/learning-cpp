@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.20)
+project(BasicTypes)
+add_executable(functions src/functions.cpp)
+add_executable(types src/types.cpp)
+add_executable(scope src/namespaces_and_scope.cpp)
