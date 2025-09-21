@@ -87,11 +87,13 @@ int main(int argc, char** argv) {
 
     // Character types
     std::cout << "char ranges from: " <<
-        char_limits::min() << " to " << char_limits::max() << std::endl;
-
+        char_limits::min() << " to " << char_limits::max() << " - (" <<
+        static_cast<int>(char_limits::min()) << " to " <<static_cast<int>(char_limits::max()) << 
+        ")" << std::endl;
     std::cout << "unsigned char ranges from: " <<
-        uchar_limits::min() << " to " << uchar_limits::max() << std::endl;
-
+        uchar_limits::min() << " to " << uchar_limits::max() << " - (" <<
+        static_cast<int>(uchar_limits::min()) << " to " <<static_cast<int>(uchar_limits::max()) << 
+        ")" << std::endl;
 
     int some_number;
     //double some_number = 8.76; // won't compile. some_number was first defined as an int
