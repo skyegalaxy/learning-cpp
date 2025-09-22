@@ -1,6 +1,6 @@
 // preprocessor directive which tells the compiler 
 // to only include the following code once
-//#pragma once
+#pragma once
 
 #include <string>
 
