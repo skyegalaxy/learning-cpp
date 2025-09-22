@@ -10,7 +10,12 @@
 // We can also define string literals this way
 #define DONT_WRITE_STRINGS_LIKE_THIS "technically a string" 
 
-//#define PREPROC_FLAG // this boolean flag is now visible the preprocessor
+// you can pass arguments to preprocessor macros
+#define PRINT_TWO_ARGS(a, b) std::cout<< a << b << std::endl
+
+
+#define PREPROC_FLAG // this boolean flag is now visible the preprocessor
+#undef PREPROC_FLAG
 
 #ifdef PREPROC_FLAG // compiles only if PREPROC_FLAG is defined
 int a{53};
@@ -19,6 +24,7 @@ int a{53};
 #ifndef PREPROC_FLAG // compiles only if PREPROC_FLAG is NOT defined
 double a{678910.12345};
 #endif
+
 
 int main(int argc, char** argv) {
     std::cout << a << std::endl;
@@ -33,3 +39,5 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+

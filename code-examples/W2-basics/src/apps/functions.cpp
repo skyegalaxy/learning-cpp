@@ -27,7 +27,17 @@ double add(double a, double b) {
     return a + b;
 }
 
-// takes no arguments, returns a string
+// from a compiler perspective, the following two statements
+// will refer to *the same function* in memory
+// and are not considered overloaded functions.
+
+int mul(int a, int b); // forward declaration
+
+int mul(int x, int y) { // implementation
+    return x * y;
+}
+
+
 std::string this_was_undefined_behavior_pre_cpp17() {
 
     std::string message = "but I have heard it works even if you don't believe in it";
@@ -43,6 +53,7 @@ std::string this_was_undefined_behavior_pre_cpp17() {
 }
 
 
+
 int main(int argc, char** argv) {
 
     printTheBeeMovieIntro();
@@ -55,11 +66,17 @@ int main(int argc, char** argv) {
     // the literals 5 and 9 will be cast to doubles
     double sum = add(5, 9);
 
+    // we can call non-void functions without doing anything with the value
+    add(100000.01, 9.43); 
+
+
     // we can't cast string literals to ints
     //double everything_nice = add ("sugar", "spice"); // (won't compile)
 
-    // we can call non-void functions without doing anything with the value
-    add(100000.01, 9.43); 
+
+    int prod = mul(5, 9);
+
+
 
     cout<<this_was_undefined_behavior_pre_cpp17()<<endl;
     return 0;
