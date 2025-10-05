@@ -63,6 +63,37 @@ void conditional_branching()
     }
 }
 
+void multiple_conditionals()
+{
+    int x = 4;
+    int y = 2;
+    
+    // Logical and: &&
+    // Logical or: ||
+    // Logical not: !
+    
+    // Since the first condition fails, the second one will not be checked
+    if (x != 4 && y < 3) { 
+        cout << "this condition" << endl;
+    }
+    // First condition met, but second condition fails
+    if (x >= 4 && y > 4) {
+        cout << "that condition" << endl;
+    }
+    // Both conditions met, so we'll actually execute this branch
+    if (x == 4 && y == 2) {
+        cout << "the other condition" << endl;
+    }
+    // Although the first condition fails, the second condition is true so we'll branch
+    if (x == 7 || y > 1) {
+        cout << "the OTHER other condition" << endl;
+    }
+    // You can chain multiple conditionals, use parens, etc
+    if (!(x < 3) && ((y >= 2) || (x < 6))) {
+        cout << "the other other Other condition" << endl;
+    }
+}
+
 
 void ternary_operator()
 {
@@ -223,6 +254,7 @@ void goto_hell(bool do_skip)
 int main(int argc, char** argv) {
 
     conditional_branching();
+    multiple_conditionals();
     ternary_operator();
     switch_statements(2);
     switch_fallthroughs();

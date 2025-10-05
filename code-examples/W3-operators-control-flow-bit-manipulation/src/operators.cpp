@@ -61,6 +61,13 @@ void compare(int a, int b)
       << a << " less than "<< b <<": "<< (a < b) << endl;
 }
 
+
+template<typename T>
+inline size_t get_size_in_bytes(const T& obj) 
+{
+    return sizeof(obj);
+}
+
 int main(int argc, char** argv) 
 {
     assignment_operator();
@@ -71,5 +78,9 @@ int main(int argc, char** argv)
     compare(6, 6);
     compare(-4, 1);
 
+    cout << get_size_in_bytes(4)<<endl;
+    cout << get_size_in_bytes(4000)<<endl;
+    cout << get_size_in_bytes("abcdefgh")<<endl;
+    cout << get_size_in_bytes(std::string{"abcdefgh"})<<endl;
     return 0;
 }
