@@ -30,19 +30,26 @@ void all_about_const()
 
     const MyCoolStruct s {100, "gecs"};
 
-
     int val = 27;
+    int val2 = 95;
 
-    // Const reference
+    // Const reference, rudimentary example
     const double& pi_ref = PI;
 
     // pointer to a const int. 
-    // The pointer can point elsewhere, but the data it points to can't be modified
-    const int* constptr = &random_number; 
+    // The pointer can point elsewhere, 
+    // but the data it points to can't be modified
+    const int* ptr2const = &random_number; 
+    ptr2const = &val2; 
+    // *ptr2const = 4;
 
     // const pointer to an int. 
-    // the pointer can't point elsewhere, but the data it points to can be modified
-    int* const ptr2const = &val;
+    // the pointer can't point elsewhere, 
+    // but the data it points to can be modified
+    int* const constptr = &val;
+    // constptr = &val2;
+    *constptr = 5;
+
 
     // When iterating through containers, 
     // it's best practice to use const references
@@ -60,6 +67,7 @@ void all_about_const()
     for (const auto& [s, n] : some_hashmap) { // structured binding syntax - new in C++17
         cout << s << ", " << n << endl;
     }
+
 }
 
 // From now on, most of the time we'll end up using const references
@@ -106,7 +114,7 @@ void intro_to_constexpr()
     const long runtime_fib_result = fib(a); // a was not declared constexpr, so fib will execute at runtime here
     auto nonconstexpr_stop = high_resolution_clock::now();
     auto nonconstexpr_duration = duration_cast<nanoseconds> (nonconstexpr_stop - nonconstexpr_start);
-    
+
     cout << "nanoseconds took to calculate fib(24) (" << compiletime_fib_result << ") during compile-time: " << constexpr_duration.count() << endl;
     cout << "nanoseconds took to calculate fib(24) (" << runtime_fib_result << ") during runtime: " << nonconstexpr_duration.count() << endl;
 
@@ -114,7 +122,7 @@ void intro_to_constexpr()
     // for initializing objects whose size must be known at compile time.
     constexpr std::array<int, mul(3, 4)> my_arr {1, 2, 3, 4, 5};
     
-    // Struct aggregates and classes with constexpr constructors and member methods
+    // Struct aggregates and classes with only constexpr constructors and member methods
     // can also be evaluated at compile-time.
     constexpr MyCustomPoint2iStruct p1 {12, 4};
 }

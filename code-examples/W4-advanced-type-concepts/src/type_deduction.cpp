@@ -7,7 +7,7 @@
 using std::cout;
 using std::endl;
 // this allows us to declare string literals with the s suffix
-using std::string_literals::operator""s; 
+using std::string_literals::operator""s;
 
 
 // you can use 'auto' to deduce a return type,
@@ -51,7 +51,7 @@ int main(int argc, char** argv)
     auto l {16720429612l}; // long int
     auto ll {796ll}; // long long int
     auto ull {98235454llu}; // long long unsigned int
-    auto str {"hi, I'm a std::string"s }; // std::string literal. only works with the std::string_literals namespace
+    auto str {"hi, I'm a std::string"s}; // std::string literal. only works with the std::string_literals namespace
 
     cout << typeid(f).name() << endl;
     cout << typeid(f2).name() << endl;

@@ -22,7 +22,6 @@ void implicit_conversions()
 {
     double d{3}; // implicitly converts integer literal 3 to a double
     d = 6; // implicitly converts integer literal 6 to a doubles
-
     
     std::function<float()>some_fn([] {
         return 3.00000001; // double literal implicitly converted to float
@@ -118,7 +117,8 @@ void numeric_promotions()
 void narrowing_conversions()
 {
     double d{3.1415};
-    print_integer(d); // compiler warning: implicit narrowing conversion
+    // should be a compiler warning: implicit narrowing conversion
+    print_integer(d); 
     print_integer(static_cast<int>(d)); // explicitly narrowing, so no compiler warning
 
     // Some constexpr conversions aren't considered narrowing by the compiler.
@@ -131,7 +131,7 @@ void narrowing_conversions()
     // unsigned int u2 { n2 };  // won't compile. sign is not preserved
 
     // int a {3.1415}; // won't compile. brace initialization won't allow narrowing conversion
-
+    
     // Strangely, narrowing a constexpr floating point type
     // is not technically considered narrowing by the compiler,
     // even when there's loss of precision.
@@ -166,7 +166,7 @@ void arithmetic_conversions()
 
     // Things start to get weird when we throw signedness into the mix.
     // -3 is promoted to an unsigned that's larger than 5
-    cout << std::boolalpha << (-3 < 5u) << endl; 
+    cout << std::boolalpha << (-3 < 5u) << endl;
 }
 
 int main(int argc, char** argv) 
