@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.20)
+project(OverloadingAndTemplates)
+
+add_executable(function_overloading src/apps/function_overloading.cpp)
+add_executable(operator_overloading src/apps/operator_overloading.cpp)
+add_executable(templates src/apps/templates.cpp)
+target_include_directories(templates PRIVATE include)
+
+add_library(forward_declared_templates src/lib/forward_declared_templates.cpp)
+target_include_directories(forward_declared_templates PUBLIC include)
+add_executable(forward_declared_templates_main src/apps/forward_declared_templates_main.cpp)
+target_link_libraries(forward_declared_templates_main forward_declared_templates)
