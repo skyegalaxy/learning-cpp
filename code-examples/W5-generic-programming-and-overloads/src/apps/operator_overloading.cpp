@@ -22,19 +22,15 @@ namespace Geometry {
             m_z == other.m_z;
         }
 
-        constexpr Point3d operator+(const Point3d& other) {
-            return Point3d(
-                m_x + other.m_x,
-                m_y + other.m_y,
-                m_z + other.m_z
-            );
-        }
-
         constexpr Point3d& operator+=(const Point3d& other) {
             m_x += other.m_x;
             m_y += other.m_y;
             m_z += other.m_z;
             return *this;            
+        }
+
+        friend constexpr Point3d operator+(const Point3d& lhs, const Point3d& rhs) {
+            return Point3d(lhs) += rhs;
         }
 
         // We declare the stream insertion operator a "friend" function.
@@ -59,7 +55,7 @@ namespace Geometry {
 int main(int argc, char** argv) 
 {
     using Geometry::Point3d;
-
+    
     // To tie together some of the previous lessons
     // and demonstrate operator overloading,
     // here's some usage of our custom class
